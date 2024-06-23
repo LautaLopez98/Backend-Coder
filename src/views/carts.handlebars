@@ -1,0 +1,24 @@
+<h1>Detalle del Carrito</h1>
+{{>menu}}
+    <div>
+        <h2>ID del Carrito: {{carrito._id}}</h2>
+        <div class="container">
+            <ul>
+                {{#each carrito.products}}
+                <div class="card">
+                        <p>ID del producto: {{this.product._id}}</p>
+                        <p>Título: {{this.product.title}}</p>
+                        <p>Descripción: {{this.product.description}}</p>
+                        <p>Precio: ${{this.product.price}}</p>
+                        <p>Stock: {{this.product.stock}}</p>
+                        <p>Categoría: {{this.product.category}}</p>
+                        <p>Cantidad: {{this.quantity}}</p>
+                        <button onclick="eliminarProducto('{{../carrito._id}}', '{{this.product._id}}')">Eliminar producto</button>
+                </div>
+                {{/each}}
+            </ul>
+        </div>
+        <button onclick="finalizarCompra('{{carrito._id}}')">Finalizar compra</button>
+    </div>
+<a class="pages" href="/products">Seguir comprando</a>
+<script src="/js/cart.js"></script>

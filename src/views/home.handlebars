@@ -1,0 +1,17 @@
+<h1>Home Page</h1>
+{{>menu}}
+<hr>
+<div class="container">
+    {{#each productos}}
+    <div class="card">
+            <h3>{{title}}</h3>
+            <img src="/uploads/{{thumbnail}}" alt="Thumbnail"></p>
+            <p>Precio: ${{price}}</p>
+            <p>Código: {{code}}</p>
+            <p>Stock: {{stock}}</p>
+            <p>Category: {{category}}</p>
+            <p>Descripción:{{description}}</p>
+            <p>Status: {{status}}</p>  
+    </div>
+    {{/each}}
+</div>

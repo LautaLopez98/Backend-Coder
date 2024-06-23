@@ -1,0 +1,13 @@
+<h2>Perfil de {{user.first_name}}</h2>
+{{>menu}}
+<hr>
+<div>
+    <h3>Datos usuario:</h3>
+    <p>Nombre: <strong>{{user.first_name}}</strong></p>
+    <p>Apellido: <strong>{{user.last_name}}</strong></p>
+    <p>Edad: <strong>{{user.age}}</strong></p>
+    <p>Correo electrónico: <strong>{{user.email}}</strong></p>
+    <p>Carrito: <strong>{{user.carrito}}</strong></p>
+</div>
+<br><br>
+<a class="pages" href="/products">Ir a comprar</a>

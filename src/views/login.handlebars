@@ -1,0 +1,30 @@
+{{>menu}}
+<hr>
+<section class="container">
+    <section class="login">
+        <form onsubmit="login(event)" id="formLogin" action="/api/sessions/login" method="post">
+            <h1>Login:</h1>
+            <div class="formulario">
+                <label>Ingresá tu email</label>
+                <input type="email" name="email" placeholder="Correo electrónico">
+            </div>
+            <div class="formulario">
+                <label>Ingresá tu contraseña</label>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+                <input type="text" name="web" value="web" hidden>
+            <div class="formulario">
+                {{#if error}}
+                    <div style="font-weight: bold; color: rgb(255, 31, 1);">{{error}}</div>
+                {{/if}}
+            </div>
+            <div class="formulario">
+                <button type="submit" value="Login">Ingresar</button>
+                <button type="submit" value="Login"><a href="/api/sessions/github">Ingresar con Github</a></button>
+            </div>
+            </div>
+        </form>
+        <br><br>
+    </section>
+</section>
+<script src="js/login.js"></script>

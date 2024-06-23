@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Resident Evil 4",
+    "description": "Juego número 1",
+    "price": "20000",
+    "thumbnail": "thumbnail",
+    "code": "FZ515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Cyberpunk 2077",
+    "description": "Juego número 2",
+    "price": "30000",
+    "thumbnail": "thumbnail",
+    "code": "FS515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "Starfield",
+    "description": "Juego número 3",
+    "price": "40000",
+    "thumbnail": "thumbnail",
+    "code": "JZ515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 4,
+    "title": "Dragons Dogma 2",
+    "description": "Juego número 4",
+    "price": "24000",
+    "thumbnail": "thumbnail",
+    "code": "KS515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 5,
+    "title": "Baldurs Gate 3",
+    "description": "Juego número 5",
+    "price": "25000",
+    "thumbnail": "thumbnail",
+    "code": "4Z515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 6,
+    "title": "Marvels Spiderman 2",
+    "description": "Juego número 6",
+    "price": "12000",
+    "thumbnail": "thumbnail",
+    "code": "ES515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 7,
+    "title": "The Forest 2",
+    "description": "Juego número 7",
+    "price": "15000",
+    "thumbnail": "thumbnail",
+    "code": "SZ515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 8,
+    "title": "Helldivers 2",
+    "description": "Juego número 8",
+    "price": "26000",
+    "thumbnail": "thumbnail",
+    "code": "DS515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 9,
+    "title": "Hogwarts Legacy",
+    "description": "Juego número 9",
+    "price": "22000",
+    "thumbnail": "thumbnail",
+    "code": "XZ515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  },
+  {
+    "id": 10,
+    "title": "Final Fantasy XVI",
+    "description": "Juego número 10",
+    "price": "30000",
+    "thumbnail": [],
+    "code": "MS515",
+    "stock": "10",
+    "category": "Juego",
+    "status": true
+  }
+]

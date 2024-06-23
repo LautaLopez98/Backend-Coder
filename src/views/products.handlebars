@@ -1,0 +1,55 @@
+<h1>Productos</h1>
+{{>menu}}
+{{#if nombreUsuario}}
+    <div class="welcome-message">
+        <h2>
+            Hola {{nombreUsuario}}!
+        </h2>
+    </div>
+    <hr>
+{{/if}}
+<hr>
+<div class="container">
+    <button>
+        <a href="/carts/{{carrito._id}}">Ver Carrito</a>
+    </button>
+</div>
+
+<input type="text" value="{{carrito._id}}" hidden id="carrito">
+<br>
+<br>
+<div class="container">
+    {{#each productos}}
+    <div class="card">
+            <h3>{{title}}</h3>
+            <img src="/uploads/{{thumbnail}}" alt="Thumbnail"></p>
+            <p>Precio: ${{price}}</p>
+            <p>Código: {{code}}</p>
+            <p>Stock: {{stock}}</p>
+            <p>Category: {{category}}</p>
+            <p>Descripción:{{description}}</p>
+            <p>Status: {{status}}</p>
+        <button class="boton" onclick="comprar('{{_id}}')">Agregar a Carrito</button>
+    </div>
+    {{/each}}
+</div>
+<div class="container">
+    <a class="pages" href="/products?page=1">Página N°1</a>
+
+    {{#if hasPrevPage}}
+        <a class="pages" href="/products?page={{prevPage}}">Página anterior</a>
+    {{/if}}
+
+    {{#if hasNextPage}}
+        <a class="pages" href="/products?page={{nextPage}}">Página siguiente</a>
+    {{/if}}
+
+    <a class="pages" href="/products?page={{totalPages}}">Última página</a>
+    <br>
+    <label for="paginaActual"></label>
+</div>
+
+
+<script src="/js/products.js"></script>
+
+

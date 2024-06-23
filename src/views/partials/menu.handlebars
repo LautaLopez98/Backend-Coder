@@ -1,0 +1,28 @@
+<header>
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="/products">Products</a>
+            </li>
+            <li>
+                <a href="/chats">Chat</a>
+            </li>
+            {{#if login}}
+                <li>
+                    <a href="/profile">Perfil</a>
+                </li>
+                <li>
+                    <a href="/api/sessions/logout">Logout</a>
+                </li>
+            {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/registro">Registro</a>
+                </li>
+            {{/if}}
+        </ul>
+    </nav>
+    <hr />
+</header>

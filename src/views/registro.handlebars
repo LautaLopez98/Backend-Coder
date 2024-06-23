@@ -1,0 +1,40 @@
+{{>menu}}
+<hr>
+<section class="container">
+    <section class="register">
+        <form onsubmit="register(event)" id="formRegister" action="/api/sessions/registro" method="post">
+        <h1>Registrate</h1>
+            <div class="formulario">
+                <label>Ingresá tu nombre</label>
+                <input type="text" name="first_name" placeholder="Nombre">
+            </div>
+            <div class="formulario">
+                <label>Ingresá tu apellido</label>
+                <input type="text" name="last_name" placeholder="Apellido">
+            </div>
+            <div class="formulario">
+                <label>Ingresá tu edad</label>
+                <input type="text" name="age" placeholder="Edad">
+            </div>
+            <div class="formulario">
+                <label>Ingresá tu email</label>
+                <input type="email" name="email" placeholder="Correo electrónico">
+            </div>
+            <div class="formulario">
+                <label>Ingresá la contraseña</label>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+            <input type="text" name="web" value="web" hidden>
+            <div class="formulario">
+                {{#if error}}
+                <div style="font-weight: bold; color: red;">{{error}}</div>
+                {{/if}}
+            </div>
+            <div class="formulario">
+                <button type="submit" value="Registrar usuario">Registrar</button>
+            </div>
+        </form>
+    </section>
+</section>
+<br><br>
+<script src="js/register.js"></script>

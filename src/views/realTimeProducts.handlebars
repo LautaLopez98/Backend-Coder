@@ -1,0 +1,28 @@
+<h1>Real Time Products</h1>
+{{>menu}}
+<div>
+    <hr>
+    <h2>Lista de productos</h2>
+    <div class="container" id="products"></div>
+</div>
+<h3>Formulario para productos</h3>
+<div class="formulario">   
+    <form method="post" id="form" enctype="multipart/form-data">
+        <label for="Título">Título</label>
+        <input type="text" id="titulo" name="titulo" required>
+        <label for="Descripción">Descripción</label>
+        <input type="text" id="descripcion" name="descripcion" required>
+        <label for="Precio">Precio</label>
+        <input type="text" id="precio" name="precio" required>
+        <label for="Código">Código</label>
+        <input type="text" id="codigo" name="codigo" required>
+        <label for="Stock">Stock</label>
+        <input type="text" id="stock" name="stock" required>
+        <label for="Categoría">Categoría</label>
+        <input type="text" id="categoria" name="categoria" required>
+        <button type="submit">Agregar producto</button>
+    </form>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>
