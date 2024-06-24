@@ -40,7 +40,7 @@ router.get('/chats', auth(["user"]),(req,res)=>{
     return res.status(200).render('chat', {login: req.session.user})
 })
 
-router.get('/products', async (req, res) => {
+router.get('/products', auth(["admin", "user"]), async (req, res) => {
     let {mensaje} = req.query;
     try {
         let carrito={

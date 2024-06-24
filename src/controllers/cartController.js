@@ -1,9 +1,9 @@
 import CartManagerMONGO from "../dao/Mongo/cartManagerMONGO.js";
 import ProductManagerMONGO from "../dao/Mongo/productManagerMONGO.js";
 import {isValidObjectId} from "mongoose";
-import { cartService } from "../services/CartService.js";
-import { productService } from "../services/productService.js";
-import { ticketService } from "../services/ticketService.js";
+import { cartService } from "../repository/cartService.js";
+import { productService } from "../repository/productService.js";
+import { ticketService } from "../repository/ticketService.js";
 
 const cartManager = new CartManagerMONGO();
 const productManager = new ProductManagerMONGO();

@@ -1,6 +1,6 @@
 import {isValidObjectId} from "mongoose";
 import {io} from "../app.js"
-import { productService } from "../services/productService.js";
+import { productService } from "../repository/productService.js";
 import { errorHandler } from "../middlewares/errorHandler.js";
 
 
