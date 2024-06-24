@@ -1,4 +1,4 @@
-export const auth=(permisos=[])=>{   // auth(["ADmIN", "premium"])  o  auth(["public"])
+export const auth=(permisos=[])=>{ 
     return (req, res, next)=>{
         permisos=permisos.map(p=>p.toLowerCase())
 
