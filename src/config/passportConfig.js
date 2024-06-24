@@ -77,7 +77,7 @@ export const initPassport = () =>{
                 }
                 let user=await usuariosManager.getUserBy({email})
                 if(!user){
-                    let newCart=await cartManager.createCart()
+                    let newCart=await cartManager.create()
                     user=await usuariosManager.create(
                         {
                             first_name, email, profile, carrito: newCart._id
