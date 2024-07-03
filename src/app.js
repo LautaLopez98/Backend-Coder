@@ -6,6 +6,7 @@ import {router as productsRoutes} from "./routes/ProductRoutes.js"
 import {router as cartRoutes} from "./routes/CartRoutes.js"
 import {router as vistasRoutes} from "./routes/vistas.router.js";
 import {router as sessionsRoutes} from "./routes/sessionsRouter.js";
+import {router as mockingRouter} from "./routes/mockingRouter.js";
 import {Server} from 'socket.io';
 import {engine} from 'express-handlebars';
 import __dirname from '../utils.js';
@@ -16,6 +17,8 @@ import { messagesModel } from './dao/models/messagesModel.js';
 import { productsModel } from './dao/models/productModel.js';
 import sessions from "express-session"
 import { config } from './config/config.js';
+import compression from 'express-compression';
+import "express-async-errors"
 
 const publics = path.join(__dirname, "src","public");
 const views = path.resolve(__dirname, "src","views")
@@ -25,6 +28,7 @@ const app = express()
 
 
 app.use(express.json());
+app.use(compression({}))
 app.use(express.urlencoded({extended: true}));
 
 app.use(sessions({
@@ -52,6 +56,7 @@ app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartRoutes);
 app.use("/api/sessions", sessionsRoutes);
 app.use("/", vistasRoutes);
+app.use("/mockingproducts", mockingRouter);
 app.use(errorHandler)
 
 let usuarios=[]

@@ -1,68 +1,62 @@
-import CartManagerMONGO from "../dao/Mongo/cartManagerMONGO.js";
 import ProductManagerMONGO from "../dao/Mongo/productManagerMONGO.js";
 import {isValidObjectId} from "mongoose";
 import { cartService } from "../repository/cartService.js";
 import { productService } from "../repository/productService.js";
 import { ticketService } from "../repository/ticketService.js";
+import { CustomError  } from "../errors/customError.js";
+import { TIPOS_ERROR } from "../errors/errors.js"
+import "express-async-errors"
 
-const cartManager = new CartManagerMONGO();
 const productManager = new ProductManagerMONGO();
 
 
 export class CartController {
-    static getCarts = async (req, res) => {
+    static getCarts = async (req, res, next) => {
         try {
             const carts = await cartService.getCarts(); 
             res.json(carts);
         } catch (error) {
-            console.error("Error al obtener los carritos", error);
-            res.status(500).json({error: error.message});
+            return next(error);
         }
     }
 
-    static getCartById = async (req, res) => {
+    static getCartById = async (req, res, next) => {
         let {cid}=req.params
         if(!isValidObjectId(cid)){
-            res.setHeader('Content-Type','application/json');
-            return res.status(400).json({error:`Ingrese un id valido de MongoDB como argumento para busqueda`})
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
         }
         try {
             const cart = await cartService.getCartByPopulate({_id:cid});
             res.json(cart);
         
         } catch (error) {
-            console.error("Error al obtener el cart", error);
-            res.status(500).json({error: error.message});
+            return next(error);
         }
     }
 
-    static createCart = async (req, res) => {
+    static createCart = async (req, res, next) => {
         try {
             const newCart = await cartService.createCart()
             res.json({newCart});
         } catch (error) {
-            console.error("Error al crear el cart", error);
-            res.status(500).json({error: error.message});
+            return next(error);
         }
     }
 
-    static addToCart = async(req,res)=>{
+    static addToCart = async(req,res, next)=>{
         let {cid, pid}=req.params
         if(!isValidObjectId(cid) || !isValidObjectId(pid)){
-            res.setHeader('Content-Type','application/json');
-            return res.status(400).json({error:`Ingrese cid / pid válidos`})
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
         }
     
         let carrito=await cartService.getCartById({_id:cid})
         if(!carrito){
-            res.setHeader('Content-Type','application/json');
-            return res.status(400).json({error:`Carrito inexistente: id ${cid}`})
+            return next(CustomError.createError('CartNotFoundError', null, `Carrito con id ${cid} no encontrado`, TIPOS_ERROR.CART_NOT_FOUND));
         }
     
         let producto=await productManager.getById({_id:pid})
         if(!producto){
-            res.setHeader('Content-Type','application/json');
-            return res.status(400).json({error:`No existe producto con id ${pid}`})
+            return next(CustomError.createError('ProductNotFoundError', null, `Producto con id ${pid} no encontrado`, TIPOS_ERROR.PRODUCT_NOT_FOUND));
         }
         let indiceProducto=carrito.products.findIndex(p=>p.product==pid)
         if(indiceProducto===-1){
@@ -78,74 +72,63 @@ export class CartController {
             res.setHeader('Content-Type','application/json');
             return res.status(200).json({payload:"Carrito actualizado", carrito });
         }else{
-            res.setHeader('Content-Type','application/json');
-            return res.status(500).json(
-                {
-                    error:`Error inesperado en el servidor - Intente más tarde, o contacte a su administrador`,
-                    detalle:`No se pudo realizar la actualizacion`
-                }
-            )
-            
+            return next(error);
         }
     }
 
-    static deleteProductInCart = async (req, res) => {
+    static deleteProductInCart = async (req, res, next) => {
         const { cid, pid } = req.params;
         try {
             const result = await cartService.deleteProductInCart(cid, pid);
             res.json({ message: "Producto eliminado del carrito", result });
         } catch (error) {
-            console.error("Error al eliminar el producto del carrito:", error);
-            res.status(500).json({ error: error.message });
+            return next(error);
         }
     }
 
-    static updateCart = async (req, res) => {
+    static updateCart = async (req, res, next) => {
         const { cid } = req.params;
         const { products } = req.body;
         try {
             const result = await cartService.update(cid, { products });
             res.json({ message: "Carrito actualizado", result });
         } catch (error) {
-            console.error("Error al actualizar el carrito:", error);
-            res.status(500).json({ error: error.message });
+            return next(error);
         }
     }
 
-    static updateProductInCart = async (req, res) => {
+    static updateProductInCart = async (req, res, next) => {
         const { cid, pid } = req.params;
         const { quantity } = req.body;
         try {
             const result = await cartService.updateProductQuantity(cid, pid, quantity);
             res.json({ message: "Cantidad de producto actualizada en el carrito", result });
         } catch (error) {
-            console.error("Error al actualizar la cantidad del producto en el carrito:", error);
-            res.status(500).json({ error: error.message });
+            return next(error);
         }
     }
 
-    static deleteProducts = async (req, res) => {
+    static deleteProducts = async (req, res, next) => {
         const { cid } = req.params;
         try {
             const result = await cartService.deleteProducts(cid);
             res.json({ message: "Todos los productos eliminados del carrito", result });
         } catch (error) {
-            console.error("Error al eliminar todos los productos del carrito:", error);
-            res.status(500).json({ error: error.message });
+            return next(error);
         }
     }
 
-    static purchaseCart = async (req, res) => {
+    static purchaseCart = async (req, res, next) => {
         const { cid } = req.params;
 
         if (!isValidObjectId(cid)) {
-            return res.status(400).json({ error: 'Ingrese un id válido de MongoDB para el carrito' });
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
         }
 
         try {
             const cart = await cartService.getCartById({ _id: cid });
             if (!cart) {
-                return res.status(404).json({ error: 'Carrito no encontrado' });
+                return next(CustomError.createError('CartNotFoundError', null, `Carrito con id ${cid} no encontrado`, TIPOS_ERROR.CART_NOT_FOUND));
             }
 
             const productsNotPurchased = [];
@@ -176,12 +159,10 @@ export class CartController {
 
                 return res.json({ message: 'Compra realizada con éxito', ticket, productsNotPurchased });
             } else {
-                return res.status(400).json({ error: 'No se pudieron procesar los productos del carrito' });
+                return next(CustomError.createError('Error', null, 'No se pudieron procesar los productos del carrito', TIPOS_ERROR.INVALID_ARGUMENT));
             }
-
         } catch (error) {
-            console.error('Error al finalizar la compra', error);
-            res.status(500).json({ error: error.message });
+            return next(error);
         }
     };
 }
