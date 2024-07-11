@@ -13,9 +13,11 @@ const productManager = new ProductManagerMONGO();
 export class CartController {
     static getCarts = async (req, res, next) => {
         try {
-            const carts = await cartService.getCarts(); 
+            const carts = await cartService.getCarts();
+            req.logger.info('Carritos obtenidos correctamente:'); 
             res.json(carts);
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -23,13 +25,15 @@ export class CartController {
     static getCartById = async (req, res, next) => {
         let {cid}=req.params
         if(!isValidObjectId(cid)){
-            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para la búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
         }
         try {
             const cart = await cartService.getCartByPopulate({_id:cid});
+            req.logger.info('Carrito obtenido correctamente:');
             res.json(cart);
         
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -37,8 +41,10 @@ export class CartController {
     static createCart = async (req, res, next) => {
         try {
             const newCart = await cartService.createCart()
+            req.logger.info('Carrito creado exitosamente');
             res.json({newCart});
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -72,6 +78,7 @@ export class CartController {
             res.setHeader('Content-Type','application/json');
             return res.status(200).json({payload:"Carrito actualizado", carrito });
         }else{
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -82,6 +89,7 @@ export class CartController {
             const result = await cartService.deleteProductInCart(cid, pid);
             res.json({ message: "Producto eliminado del carrito", result });
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -93,6 +101,7 @@ export class CartController {
             const result = await cartService.update(cid, { products });
             res.json({ message: "Carrito actualizado", result });
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -104,6 +113,7 @@ export class CartController {
             const result = await cartService.updateProductQuantity(cid, pid, quantity);
             res.json({ message: "Cantidad de producto actualizada en el carrito", result });
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -114,6 +124,7 @@ export class CartController {
             const result = await cartService.deleteProducts(cid);
             res.json({ message: "Todos los productos eliminados del carrito", result });
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     }
@@ -162,6 +173,7 @@ export class CartController {
                 return next(CustomError.createError('Error', null, 'No se pudieron procesar los productos del carrito', TIPOS_ERROR.INVALID_ARGUMENT));
             }
         } catch (error) {
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
             return next(error);
         }
     };

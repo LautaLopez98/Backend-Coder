@@ -1,7 +1,6 @@
 import { TIPOS_ERROR } from "../errors/errors.js";
 
 export const errorHandler = (error, req, res, next) => {
-    console.log(`${error.cause?error.cause:error.message}`)
     switch (error.code) {
         case TIPOS_ERROR.AUTHENTICATION || TIPOS_ERROR.AUTHORIZATION:
             res.setHeader('Content-Type', 'application/json');

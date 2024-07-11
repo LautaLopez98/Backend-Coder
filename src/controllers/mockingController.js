@@ -1,7 +1,7 @@
 import { fakerEN_US as faker } from "@faker-js/faker";
 
 export class Mocking {
-    static generateProducts = (req, res) => {
+    static generateProducts = (req, res, next) => {
         try {
             let products = [];
             for (let i = 0; i < 100; i++) {
@@ -19,7 +19,8 @@ export class Mocking {
             }
             res.json(products);
         } catch (error) {
-            res.status(400).json({ error: `${error.message}`});
+            req.logger.error(JSON.stringify({name: error.name, message: error.message, stack: error.stack,}, null, 4));
+            return next(error);
         }
     }
 }

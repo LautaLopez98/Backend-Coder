@@ -7,6 +7,7 @@ import {router as cartRoutes} from "./routes/CartRoutes.js"
 import {router as vistasRoutes} from "./routes/vistas.router.js";
 import {router as sessionsRoutes} from "./routes/sessionsRouter.js";
 import {router as mockingRouter} from "./routes/mockingRouter.js";
+import {router as loggerRouter} from "./routes/loggerRouter.js";
 import {Server} from 'socket.io';
 import {engine} from 'express-handlebars';
 import __dirname from '../utils.js';
@@ -19,6 +20,8 @@ import sessions from "express-session"
 import { config } from './config/config.js';
 import compression from 'express-compression';
 import "express-async-errors"
+import { logger } from './logger.js';
+import { middLogger } from './logger.js';
 
 const publics = path.join(__dirname, "src","public");
 const views = path.resolve(__dirname, "src","views")
@@ -41,6 +44,7 @@ app.use(sessions({
     })
 }))
 
+app.use(middLogger);
 initPassport()
 app.use(passport.initialize())
 app.use(passport.session())
@@ -57,11 +61,12 @@ app.use("/api/carts", cartRoutes);
 app.use("/api/sessions", sessionsRoutes);
 app.use("/", vistasRoutes);
 app.use("/mockingproducts", mockingRouter);
+app.use("/loggertest", loggerRouter);
 app.use(errorHandler)
 
 let usuarios=[]
 
-const serverHTTP = app.listen(PORT, ()=> console.log(`Server online en puerto ${PORT}`));
+const serverHTTP = app.listen(PORT, ()=> logger.info(`Server online en puerto ${PORT}`));
 export const io = new Server(serverHTTP);
 
 io.on('connection', async (socket) =>{

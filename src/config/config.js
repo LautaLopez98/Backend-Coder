@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 dotenv.config(
     {
-        path: "./src/.env",
+        path: `./src/.env`,
         override: true
     }
 );
@@ -16,6 +16,7 @@ export const config = {
     SECRET:process.env.SECRET,
     CLIENT_ID: process.env.CLIENT_ID,
     CLIENT_SECRET: process.env.CLIENT_SECRET,
+    MODE: process.env.MODE,
 }
 
 const transporter = nodemailer.createTransport({
