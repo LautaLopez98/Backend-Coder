@@ -8,10 +8,10 @@ export const usersModel=mongoose.model('usuarios',new mongoose.Schema({
         type: String, unique:true
     }, 
     password: String,
-    rol:{
+    rol: {
         type: String,
         default: "user",
-
+        enum: ["user", "admin", "premium"]
     },
     carrito: {
         type: mongoose.Types.ObjectId, ref: "carritos"

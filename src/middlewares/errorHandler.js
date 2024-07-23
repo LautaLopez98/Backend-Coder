@@ -16,6 +16,10 @@ export const errorHandler = (error, req, res, next) => {
 
         default:
             res.setHeader('Content-Type', 'application/json');
+            console.error('Error:', error.message);
+            if (error.message === 'jwt expired') {
+                return res.render('new-login');
+            }
             return res.status(500).json({ error: 'Error - contacte al administrador' });
     }
 };

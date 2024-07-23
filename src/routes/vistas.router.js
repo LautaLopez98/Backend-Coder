@@ -3,6 +3,7 @@ import ProductManagerMONGO from "../dao/Mongo/productManagerMONGO.js";
 import CartManagerMONGO from "../dao/Mongo/cartManagerMONGO.js";
 import { productsModel } from "../dao/models/productModel.js";
 import {auth} from "../middlewares/auth.js";
+import { generateResetToken, verifyResetToken } from '../jwt.js';
 export const router = Router();
 
 const productManager = new ProductManagerMONGO()
@@ -28,7 +29,7 @@ router.get('/login', (req, res) =>{
     res.status(200).render('login', {error, login: req.session.user})
 })
 
-router.get('/profile', auth(["admin", "user"]) ,(req, res) =>{
+router.get('/profile', auth(["admin", "user", "premium"]) ,(req, res) =>{
     res.status(200).render('profile', {user: req.session.user, login: req.session.user})
 })
 
@@ -36,11 +37,11 @@ router.get('/realtimeproducts', auth(["admin"]), (req, res) =>{
     return res.render('realTimeProducts', {login: req.session.user});
 })
 
-router.get('/chats', auth(["user"]),(req,res)=>{
+router.get('/chats', auth(["user", "premium"]),(req,res)=>{
     return res.status(200).render('chat', {login: req.session.user})
 })
 
-router.get('/products', auth(["admin", "user"]), async (req, res) => {
+router.get('/products', auth(["admin", "user", "premium"]), async (req, res) => {
     let {mensaje} = req.query;
     try {
         let carrito={
@@ -70,6 +71,20 @@ router.get('/products', auth(["admin", "user"]), async (req, res) => {
         console.error("Error al obtener los productos:", error);
         res.status(500).json({ error: "Error interno del servidor" });
     }
+});
+
+router.get('/sendpassword', (req, res) => {
+    res.render('changepassword');
+});
+
+router.get('/resetpassword/:token', (req, res) => {
+    const { token } = req.params;
+    const payload = verifyResetToken(token);
+    if (!payload) {
+        req.logger.error('El enlace ha expirado o es inválido');
+        return res.render('new-login')
+    }
+    return res.render('resetpassword', { token });
 });
 
 router.get('/carts/:cid', async (req, res) => {

@@ -5,7 +5,7 @@ import UsersManager from "../dao/Mongo/usuariosManager.js";
 import { generaHash, validatePassword } from "../../utils.js";
 import CartManagerMONGO from "../dao/Mongo/cartManagerMONGO.js";
 import { config } from "./config.js";
-import { sendWelcomeEmail } from "./config.js";
+import { sendWelcomeEmail } from "../nodemailer.js";
 
 const usuariosManager = new UsersManager()
 const cartManager = new CartManagerMONGO();

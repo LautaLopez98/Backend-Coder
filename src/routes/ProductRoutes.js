@@ -6,6 +6,6 @@ export const router = Router();
 
 router.get("/", ProductController.getProducts);
 router.get("/:pid", ProductController.getProductById);
-router.post("/", upload.single("thumbnail"), auth(["admin"]), ProductController.addProduct);
-router.put("/:pid", auth(["admin"]), ProductController.updateProduct);
-router.delete("/:pid", auth(["admin"]), ProductController.deleteProduct);
+router.post("/", upload.single("thumbnail"), auth(["admin", "premium"]), ProductController.addProduct);
+router.put("/:pid", auth(["admin", "premium"]), ProductController.updateProduct);
+router.delete("/:pid", auth(["admin", "premium"]), ProductController.deleteProduct);

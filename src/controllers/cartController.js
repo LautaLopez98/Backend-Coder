@@ -49,12 +49,12 @@ export class CartController {
         }
     }
 
-    static addToCart = async(req,res, next)=>{
+    static addToCart = async(req, res, next)=>{
         let {cid, pid}=req.params
         if(!isValidObjectId(cid) || !isValidObjectId(pid)){
             return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
         }
-    
+        
         let carrito=await cartService.getCartById({_id:cid})
         if(!carrito){
             return next(CustomError.createError('CartNotFoundError', null, `Carrito con id ${cid} no encontrado`, TIPOS_ERROR.CART_NOT_FOUND));
@@ -63,6 +63,9 @@ export class CartController {
         let producto=await productManager.getById({_id:pid})
         if(!producto){
             return next(CustomError.createError('ProductNotFoundError', null, `Producto con id ${pid} no encontrado`, TIPOS_ERROR.PRODUCT_NOT_FOUND));
+        }
+        if (req.user.rol === 'premium' && producto.owner.toString() === req.user.email.toString()) {
+            return next(CustomError.createError('UnauthorizedError', null, 'No podés agregar tu propio producto al carrito', TIPOS_ERROR.UNAUTHORIZED));
         }
         let indiceProducto=carrito.products.findIndex(p=>p.product==pid)
         if(indiceProducto===-1){

@@ -1,5 +1,4 @@
 import dotenv from "dotenv";
-import nodemailer from "nodemailer";
 
 dotenv.config(
     {
@@ -16,30 +15,6 @@ export const config = {
     SECRET:process.env.SECRET,
     CLIENT_ID: process.env.CLIENT_ID,
     CLIENT_SECRET: process.env.CLIENT_SECRET,
+    GMAIL_PASS: process.env.GMAIL_PASS,
     MODE: process.env.MODE,
 }
-
-const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'laueze1998@gmail.com',
-        pass: 'lmmu wgwx jtfs tvqk'
-    }
-});
-
-export const sendWelcomeEmail = (toEmail) => {
-    const mailOptions = {
-        from: 'laueze1998@gmail.com',
-        to: toEmail,
-        subject: 'Bienvenido a mi aplicación',
-        text: 'Gracias por registrarte en mi aplicación!',
-        html: '<h1>Bienvenido!</h1><p>Gracias por registrarte en mi aplicación!</p>'
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Correo enviado: ' + info.response);
-    });
-};

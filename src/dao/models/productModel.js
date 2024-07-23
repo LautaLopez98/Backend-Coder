@@ -10,6 +10,7 @@ const productSchema=new mongoose.Schema({
     code:{type:String, required:[true,"El código es obligatorio"], unique: true},
     stock:{type:String, required:[true,"El stock es obligatorio"]},
     category:{type:String, required:[true,"La categoría es obligatoria"]},
+    owner: {type: String, default: "admin"},
     status:{type:Boolean, default: true},
 })
 

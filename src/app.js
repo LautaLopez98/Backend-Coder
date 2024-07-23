@@ -8,6 +8,8 @@ import {router as vistasRoutes} from "./routes/vistas.router.js";
 import {router as sessionsRoutes} from "./routes/sessionsRouter.js";
 import {router as mockingRouter} from "./routes/mockingRouter.js";
 import {router as loggerRouter} from "./routes/loggerRouter.js";
+import {router as userRoutes} from "./routes/userRouter.js"
+import {router as resetRoutes} from "./routes/resetPassword.js"
 import {Server} from 'socket.io';
 import {engine} from 'express-handlebars';
 import __dirname from '../utils.js';
@@ -59,9 +61,11 @@ app.set('views', views);
 app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartRoutes);
 app.use("/api/sessions", sessionsRoutes);
+app.use("/api/users", userRoutes);
 app.use("/", vistasRoutes);
 app.use("/mockingproducts", mockingRouter);
 app.use("/loggertest", loggerRouter);
+app.use("/resetpassword", resetRoutes);
 app.use(errorHandler)
 
 let usuarios=[]

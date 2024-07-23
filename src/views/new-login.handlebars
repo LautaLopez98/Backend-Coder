@@ -1,0 +1,14 @@
+<h1>Solicitar nuevo enlace de restablecimiento</h1>
+{{>menu}}
+<hr>
+<section class="container">
+    <h2>El enlace ha expirado, volvé a informar tu email para que te envie un nuevo correo</h2>
+    <section class="login">
+        <form action="/resetpassword/request-password-reset" method="POST">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <br><br>
+    </section>
+</section>

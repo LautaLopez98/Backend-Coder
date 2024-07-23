@@ -48,7 +48,11 @@ export class ProductController {
             if(!title || !description || !price || !code || !stock || !category){
                 return next(CustomError.createError('InvalidArgumentError', null, 'Faltan datos: title, description, price, code, stock, category son obligatorios', TIPOS_ERROR.INVALID_ARGUMENT));
             }
-            const product = await productService.addProduct({title, description, price, thumbnail, code, stock, category, status})
+            let owner = "admin";
+            if (req.session.user.rol === "premium") {
+                owner = req.session.user.email;
+            }
+            const product = await productService.addProduct({title, description, price, thumbnail, code, stock, category, status, owner})
             req.logger.info('Producto creado exitosamente');
             res.json(product)
         } catch (error) {

@@ -9,5 +9,9 @@
     <p>Correo electrónico: <strong>{{user.email}}</strong></p>
     <p>Carrito: <strong>{{user.carrito}}</strong></p>
 </div>
+<form action="/api/users/premium/{{user._id}}" method="post" style="display:inline;">
+    <button type="submit">Cambiar rol del usuario</button>
+</form>
 <br><br>
 <a class="pages" href="/products">Ir a comprar</a>
+<script src="js/changerol.js"></script>
