@@ -24,12 +24,27 @@ import compression from 'express-compression';
 import "express-async-errors"
 import { logger } from './logger.js';
 import { middLogger } from './logger.js';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUI from "swagger-ui-express";
 
 const publics = path.join(__dirname, "src","public");
 const views = path.resolve(__dirname, "src","views")
 
 const PORT = config.PORT
 const app = express()
+
+const options={
+    definition:{
+        openapi: "3.0.0",
+        info:{
+            title:"Api Backend",
+            version: "1.0.0",
+            description:"Documentación del Ecommerce"
+        },
+    },
+    apis: ["./src/docs/*.yaml"]
+}
+const spec = swaggerJsDoc(options)
 
 
 app.use(express.json());
@@ -62,6 +77,7 @@ app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartRoutes);
 app.use("/api/sessions", sessionsRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(spec))
 app.use("/", vistasRoutes);
 app.use("/mockingproducts", mockingRouter);
 app.use("/loggertest", loggerRouter);

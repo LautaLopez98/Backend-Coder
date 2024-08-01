@@ -57,7 +57,7 @@ export class CartController {
         
         let carrito=await cartService.getCartById({_id:cid})
         if(!carrito){
-            return next(CustomError.createError('CartNotFoundError', null, `Carrito con id ${cid} no encontrado`, TIPOS_ERROR.CART_NOT_FOUND));
+            return next(CustomError.createError('CartNotFoundError', null, `Carrito con ID ${cid} no encontrado`, TIPOS_ERROR.CART_NOT_FOUND));
         }
     
         let producto=await productManager.getById({_id:pid})

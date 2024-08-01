@@ -1,0 +1,252 @@
+paths:
+  /api/carts:
+    get:
+      summary: Traer carritos
+      tags:
+        - Carts
+      description: Trae todos los carritos creados.
+      responses:
+        "200":
+          description: Lista de carritos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Carts'
+        "500":
+          description: Error del servidor
+
+    post:
+      summary: Crear un nuevo carrito
+      tags:
+        - Carts
+      description: Crea un nuevo carrito.
+      responses:
+        "200":
+          description: Carrito creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Carts'
+        "500":
+          description: Error del servidor
+
+  /api/carts/{cid}:
+    get:
+      summary: Traer un carrito por su ID
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del producto que se está solicitando
+        schema:
+          type: string
+      description: Devuelve un carrito especifico por su ID.
+      responses:
+        "200":
+          description: Carrito obtenido correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Carts'
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "500":
+          description: Error del servidor
+
+    put:
+      summary: Actualizar los productos de un carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del carrito que se está solicitando
+        schema:
+          type: string
+      description: Actualiza los productos del carrito.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/updateCart'
+      responses:
+        "200":
+          description: Carrito actualizado
+        "500":
+          description: Error del servidor
+
+    delete:
+      summary: Eliminar productos del carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del carrito que se está solicitando
+        schema:
+          type: string
+      description: Elimina los productos del carrito.
+      responses:
+        "200":
+          description: Todos los productos eliminados del carrito
+        "500":
+          description: Error del servidor
+
+  /api/carts/{cid}/products/{pid}:
+    post:
+      summary: Agregar producto al carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del carrito que se está solicitando
+        schema:
+          type: string
+      - name: pid
+        in: path
+        required: true
+        description: id del producto que se está solicitando
+        schema:
+          type: string
+      description: Agrega un producto al carrito especificado.
+      responses:
+        "200":
+          description: Carrito actualizado
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "401":
+          description: No podés agregar tu propio producto al carrito
+        "500":
+          description: Error del servidor
+
+    delete:
+      summary: Eliminar producto del carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del carrito que se está solicitando
+        schema:
+          type: string
+      - name: pid
+        in: path
+        required: true
+        description: id del producto que se está solicitando
+        schema:
+          type: string
+      description: Elimina un producto especifico del carrito.
+      responses:
+        "200":
+          description: Producto eliminado del carrito
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "500":
+          description: Error del servidor
+
+    put:
+      summary: Actualizar la cantidad de un producto del carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del carrito que se está solicitando
+        schema:
+          type: string
+      - name: pid
+        in: path
+        required: true
+        description: id del producto que se está solicitando
+        schema:
+          type: string
+      description: Actualiza la cantidad de un producto del carrito.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/updateCart'
+      responses:
+        "200":
+          description: Cantidad de producto actualizada en el carrito
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "500":
+          description: Error del servidor
+
+  /api/carts/{cid}/purchase:
+    post:
+      summary: Proceso de compra del o los productos en el carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: id del carrito que se está solicitando
+        schema:
+          type: string
+      description: Crea una orden de compra de el o los productos en el carrito.
+      responses:
+        "200":
+          description: Compra realizada con éxito
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "404":
+          description: Carrito no encontrado
+        "500":
+          description: Error del servidor
+components:
+  schemas:
+    Carts:
+      type: object
+      properties:
+        ID:
+          type: ObjectId
+          description: ID del carrito
+        productos:
+          type: string
+          description: Producto o productos agregados    
+        Producto:
+          type: string
+          description: Datos del producto
+        quantity: 
+          type: number
+          description: Cantidad agregada de ese producto 
+        
+      example:
+        _id: ObjectId("60acc54545c8e82e0475f73a")
+        products:
+          product: ObjectId("60acc54545c8e82e0475f73a")
+          quantity: 1
+  requestBodies:
+    updateCart:
+      type: object
+      properties:
+        product:
+          type: string
+          description: Datos del producto
+        quantity: 
+          type: number
+          description: Cantidad agregada de ese producto 
+      example:
+        _id: ObjectId("60acc54545c8e82e0475f73a")
+        products:
+          product: ObjectId("60acc54545c8e82e0475f73a")
+          quantity: 1

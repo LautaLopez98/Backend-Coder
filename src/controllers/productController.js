@@ -11,7 +11,7 @@ export class ProductController {
         try {
             const { page, limit, sort, category, stock } = req.query;
             const query = { category, stock };
-            const products = await productService.getProduct(limit, page, sort, query);
+            const products = await productService.getProducts(limit, page, sort, query);
             req.logger.info('Productos obtenidos correctamente');
             res.json(products);
         } catch (error) {

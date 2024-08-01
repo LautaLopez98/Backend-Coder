@@ -1,0 +1,204 @@
+paths:
+  /api/products:
+    get:
+      summary: Traer todos los productos
+      tags:
+        - Products
+      description: Trae todos los productos.
+      responses:
+        "200":
+          description: Productos obtenidos correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: Error del servidor
+
+    post:
+      summary: Crear un nuevo producto
+      tags:
+        - Products
+      description: Crea un nuevo producto. Es necesario completar todos los campos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/createProduct'
+      responses:
+        "200":
+          description: Producto obtenido correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "400":
+          description: Datos incorrectos o faltantes
+        "500":
+          description: Error del servidor
+
+  /api/products/{pid}:
+    get:
+      summary: Traer un producto por su ID
+      tags:
+        - Products
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: id del producto que se está solicitando
+        schema:
+          type: string
+      description: Trae un producto por su ID, enviado por parametros.
+      responses:
+        "200":
+          description: Producto obtenido correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "404":
+          description: Producto no encontrado
+        "500":
+          description: Error del servidor
+
+    put:
+      summary: Actualizar los datos de un producto
+      tags:
+        - Products
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: id del producto que se está solicitando
+        schema:
+          type: string
+      description: Actualiza los datos de un producto.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/createProduct'
+      responses:
+        "200":
+          description: Producto actualizado exitosamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "400":
+          description: Datos incorrectos o faltantes
+        "500":
+          description: Error del servidor
+
+    delete:
+      summary: Eliminar un producto
+      tags:
+        - Products
+      description: Elimina un producto especifico segun su ID.
+      responses:
+        "200":
+          description: Producto eliminado exitosamente
+        "400":
+          description: Ingrese un id válido de MongoDB como argumento para la búsqueda
+        "403":
+          description: Usuario no autorizado para eliminar productos
+        "404":
+          description: Producto no encontrado
+        "500":
+          description: Error del servidor
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        title:
+          type: ObjectId
+          description: Título del producto
+        description:
+          type: string
+          description: Descripción del producto
+        price:
+          type: string
+          description: Precio del producto    
+        thumbnail:
+          type: image
+          description: Imágen del producto
+        code: 
+          type: string
+          description: Código del producto 
+        stock: 
+          type: string
+          description: Stock del producto
+        category: 
+          type: string
+          description: Categoría del producto
+        owner: 
+          type: string
+          description: Creador del producto
+        status: 
+          type: string
+          description: Estado del producto
+      example:
+        title: Juego 1
+        description: Videojuego
+        price: $10000 
+        thumbnail:
+        code: HJVKC
+        stock: 5
+        category: Playstation 5
+        owner: admin
+        status: true
+  requestBodies:
+    createProduct:
+      type: object
+      properties:
+        title:
+          type: ObjectId
+          description: Título del producto
+        description:
+          type: string
+          description: Descripción del producto
+        price:
+          type: string
+          description: Precio del producto    
+        thumbnail:
+          type: image
+          description: Imágen del producto
+        code: 
+          type: string
+          description: Código del producto 
+        stock: 
+          type: number
+          description: Stock del producto
+        category: 
+          type: string
+          description: Categoría del producto
+        owner: 
+          type: string
+          description: Creador del producto
+        status: 
+          type: string
+          description: Estado del producto
+      example:
+        title: Juego 1
+        description: Videojuego
+        price: $10000 
+        thumbnail:
+        code: HJVKC
+        stock: 5
+        category: Playstation 5
+        owner: admin
+        status: true
