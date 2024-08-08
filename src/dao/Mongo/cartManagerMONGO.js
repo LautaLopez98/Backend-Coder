@@ -1,4 +1,5 @@
 import { cartModel } from '../models/cartModel.js';
+import mongoose from 'mongoose';
 
 class CartManagerMONGO {
     async get() {
@@ -47,16 +48,20 @@ class CartManagerMONGO {
         }
     }
 
-    async updateQuantity(cartId, productId, quantity) {
+    async updateQuantity(cid, pid, newQuantity) {
         try {
-            const result = await cartModel.findOneAndUpdate(
-                { _id: cartId, "products.product": productId },
-                { $set: { "products.$.quantity": quantity } },
-                { new: true }
-            );
-            return result;
+            let cart = await cartModel.findOne({_id: cid});
+            if (!cart) {
+                throw new Error('Carrito no encontrado');
+            }
+            cart.products.forEach((p) => {
+                if (p.product._id.toString() === pid.toString()) {
+                    p.quantity = newQuantity;
+                }
+            });
+            await cart.save();
         } catch (error) {
-            throw new Error(`Error al actualizar la cantidad del producto en el carrito: ${error}`);
+            throw new Error(`Error al actualizar la cantidad del producto en el carrito: ${error.message}`);
         }
     }
 

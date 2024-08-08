@@ -88,6 +88,9 @@ export class CartController {
 
     static deleteProductInCart = async (req, res, next) => {
         const { cid, pid } = req.params;
+        if(!isValidObjectId(cid) || !isValidObjectId(pid)){
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
+        }
         try {
             const result = await cartService.deleteProductInCart(cid, pid);
             res.json({ message: "Producto eliminado del carrito", result });
@@ -100,6 +103,9 @@ export class CartController {
     static updateCart = async (req, res, next) => {
         const { cid } = req.params;
         const { products } = req.body;
+        if(!isValidObjectId(cid)){
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
+        }
         try {
             const result = await cartService.update(cid, { products });
             res.json({ message: "Carrito actualizado", result });
@@ -112,6 +118,9 @@ export class CartController {
     static updateProductInCart = async (req, res, next) => {
         const { cid, pid } = req.params;
         const { quantity } = req.body;
+        if(!isValidObjectId(cid) || !isValidObjectId(pid)){
+            return next(CustomError.createError('Error', null, 'Ingrese un id válido de MongoDB como argumento para búsqueda', TIPOS_ERROR.INVALID_ARGUMENT));
+        }
         try {
             const result = await cartService.updateProductQuantity(cid, pid, quantity);
             res.json({ message: "Cantidad de producto actualizada en el carrito", result });

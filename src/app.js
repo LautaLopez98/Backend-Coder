@@ -150,3 +150,5 @@ const db = async() => {
 }
 
 db()
+
+export default app;

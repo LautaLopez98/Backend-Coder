@@ -13,3 +13,83 @@
     "message": "productos validation failed: price: Cast to Number failed for value \"$10000\" (type string) at path \"price\"",
     "stack": "ValidationError: productos validation failed: price: Cast to Number failed for value \"$10000\" (type string) at path \"price\"\n    at Document.invalidate (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\document.js:3289:32)\n    at model.$set (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\document.js:1463:12)\n    at model.$set (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\document.js:1117:16)\n    at model.Document (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\document.js:166:12)\n    at model.Model (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\model.js:131:12)\n    at new model (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\model.js:4816:15)\n    at C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\model.js:2958:20\n    at Array.map (<anonymous>)\n    at Function.create (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongoose\\lib\\model.js:2946:34)\n    at ProductManagerMONGO.add (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/productManagerMONGO.js:6:36)"
 }
+2024-08-05T23:02:53.011Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: ReferenceError: searchCart is not defined",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: ReferenceError: searchCart is not defined\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:62:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:03:07.919Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:62:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:04:41.539Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:62:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:05:46.602Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:61:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:07:09.477Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: ReferenceError: result is not defined",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: ReferenceError: result is not defined\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:61:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:07:44.722Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:61:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:07:45.822Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:61:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:09:44.824Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:64:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:10:40.330Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: ObjectParameterError: Parameter \"filter\" to findOne() must be an object, got \"664439281985b0a8333bb0c0\" (type string)",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: ObjectParameterError: Parameter \"filter\" to findOne() must be an object, got \"664439281985b0a8333bb0c0\" (type string)\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:64:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:11:27.881Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: TypeError: cart.save is not a function\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:64:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:11:50.940Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: Error: Carrito no encontrado",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: Error: Carrito no encontrado\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:64:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:18:15.594Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: mongoose is not defined",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: mongoose is not defined\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:80:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-05T23:18:33.154Z error: {
+    "name": "Error",
+    "message": "Error al actualizar la cantidad del producto en el carrito: El carrito no es un documento de Mongoose",
+    "stack": "Error: Error al actualizar la cantidad del producto en el carrito: El carrito no es un documento de Mongoose\n    at CartManagerMONGO.updateQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/dao/Mongo/cartManagerMONGO.js:81:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async CartService.updateProductQuantity (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/repository/cartService.js:41:16)\n    at async updateProductInCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:122:28)"
+}
+2024-08-07T16:55:48.972Z error: {
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'rol')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'rol')\n    at addProduct (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/productController.js:52:34)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at multerMiddleware (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\multer\\lib\\make-middleware.js:13:41)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)"
+}
+2024-08-07T16:55:49.121Z error: {
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'rol')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'rol')\n    at addProduct (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/productController.js:52:34)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at multerMiddleware (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\multer\\lib\\make-middleware.js:13:41)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)"
+}
+2024-08-07T16:55:49.762Z error: {
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'rol')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'rol')\n    at addProduct (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/productController.js:52:34)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at multerMiddleware (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\multer\\lib\\make-middleware.js:13:41)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)"
+}

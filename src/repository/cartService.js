@@ -37,8 +37,8 @@ class CartService {
         return await this.dao.update(cartId, updatedCart)
     }
 
-    updateProductQuantity = async (cartId, productId, quantity) => {
-        return await this.dao.updateQuantity(cartId, productId, quantity)
+    updateProductQuantity = async (cid, pid, newQuantity) => {
+        return await this.dao.updateQuantity(cid, pid, newQuantity)
     }
 }
 
