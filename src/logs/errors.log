@@ -93,3 +93,78 @@
     "message": "Cannot read properties of undefined (reading 'rol')",
     "stack": "TypeError: Cannot read properties of undefined (reading 'rol')\n    at addProduct (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/productController.js:52:34)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at multerMiddleware (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\multer\\lib\\make-middleware.js:13:41)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at newFn (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\express-async-errors\\index.js:16:20)"
 }
+2024-08-08T21:45:10.547Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T21:58:17.850Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:02:51.790Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:09:43.386Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:12:18.153Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:17:39.041Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:19:00.608Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:20:25.044Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:20:56.626Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:22:09.321Z error: {
+    "name": "MongoServerError",
+    "message": "E11000 duplicate key error collection: Ecommerce.productos index: code_1 dup key: { code: \"WUrz\" }",
+    "stack": "MongoServerError: E11000 duplicate key error collection: Ecommerce.productos index: code_1 dup key: { code: \"WUrz\" }\n    at InsertOneOperation.execute (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async executeOperation (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:126:16)"
+}
+2024-08-08T22:24:02.017Z error: {
+    "name": "MongoServerError",
+    "message": "E11000 duplicate key error collection: Ecommerce.productos index: code_1 dup key: { code: \"F3v1\" }",
+    "stack": "MongoServerError: E11000 duplicate key error collection: Ecommerce.productos index: code_1 dup key: { code: \"F3v1\" }\n    at InsertOneOperation.execute (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async executeOperation (C:\\Users\\Joaquin\\Desktop\\3r Pre-Entrega\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:126:16)"
+}
+2024-08-08T22:30:15.194Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:35:22.723Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:39:29.308Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-08T22:49:38.221Z error: {
+    "name": "Error",
+    "message": "No se pudieron procesar los productos del carrito",
+    "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}

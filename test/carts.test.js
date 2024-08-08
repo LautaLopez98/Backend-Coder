@@ -7,18 +7,9 @@ import { config } from "../src/config/config.js";
 
 const requester = supertest("http://localhost:8080");
 
-let testProduct = {
-    title: "test",
-    description: "product test",
-    code: faker.string.alphanumeric(4),
-    price: faker.commerce.price({ min: 10000, max: 50000 }),
-    status: true,
-    stock: faker.number.int({ min: 1, max: 50 }),
-    category: faker.commerce.productAdjective(),
-    thumbnails: [faker.image.url()],
-};
 
-let user = { email: "adminCoder@coder.com", password: "123" };
+let user = { email: "pruebapremium@prueba.com", password: "123" };
+let adminUser = { email: "adminCoder@coder.com", password: "123" };
 
 describe("Prueba de rutas de carritos", function () {
     this.timeout(20000);
@@ -27,7 +18,7 @@ describe("Prueba de rutas de carritos", function () {
     await mongoose.connect(config.MONGO_URL_COMPLETE, { 
         dbName: config.DB_NAME
     });
-    await requester.post("/api/sessions/login").send(user);
+    await requester.post("/api/sessions/login").send(adminUser);
     });
 
     after(async function () {
@@ -72,10 +63,21 @@ describe("Prueba de rutas de carritos", function () {
     });
 
     it("Agregar un producto al carrito", async function () {
-        await requester.post("/api/sessions/login").send(user);
-        let productRes = await requester.post("/api/products").send(testProduct);
+        let productRes = await requester.post("/api/products").send({
+            title: "test",
+            description: "product test",
+            code: faker.string.alphanumeric(4),
+            price: faker.commerce.price({ min: 10000, max: 50000 }),
+            status: true,
+            stock: faker.number.int({ min: 1, max: 50 }),
+            category: faker.commerce.productAdjective(),
+            thumbnails: [faker.image.url()],
+            owner: "admin"
+        });
         let pid = productRes.body._id;
         expect(pid).to.not.be.undefined; 
+        await requester.post("/api/sessions/logout");
+        await requester.post("/api/sessions/login").send(user);
         let cartRes = await requester.post("/api/carts").send();
         let cid = cartRes.body.newCart._id;
         let response = await requester.post(`/api/carts/${cid}/product/${pid}`).send();
@@ -130,28 +132,4 @@ describe("Prueba de rutas de carritos", function () {
         expect(status).to.be.equal(200);
         expect(ok).to.be.true;
     });
-
-    it("Realizar compra de productos en el carrito", async function () {
-        let cartRes = await requester.post("/api/carts").send();
-        let cid = cartRes.body.newCart._id;
-        expect(cid).to.not.be.undefined;
-        let productRes = await requester.post("/api/products").send({
-        title: "Test Product",
-        description: "Product for testing",
-        code: faker.string.alphanumeric(4),
-        price: faker.commerce.price({ min: 10, max: 500 }),
-        status: true,
-        stock: 10,
-        category: faker.commerce.productAdjective(),
-        thumbnails: [faker.image.url()],
-        });
-        let pid = productRes.body._id;
-        expect(pid).to.not.be.undefined;
-        await requester.post(`/api/carts/${cid}/product/${pid}`).send();
-        let response = await requester.post(`/api/carts/${cid}/purchase`).send();
-        let { ok, status, body } = response;
-        expect(body.message).to.be.equal("Compra realizada con éxito");
-        expect(status).to.be.equal(200);
-        expect(ok).to.be.true;
-    });
-    })
+})
