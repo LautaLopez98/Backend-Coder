@@ -6,6 +6,8 @@ import { generaHash, validatePassword } from "../../utils.js";
 import CartManagerMONGO from "../dao/Mongo/cartManagerMONGO.js";
 import { config } from "./config.js";
 import { sendWelcomeEmail } from "../nodemailer.js";
+import mongoose from "mongoose";
+import { usersModel } from "../dao/models/usersModel.js";
 
 const usuariosManager = new UsersManager()
 const cartManager = new CartManagerMONGO();
@@ -32,7 +34,7 @@ export const initPassport = () =>{
                 let newCart=await cartManager.create()
                 let newUser = await usuariosManager.create({first_name, last_name, age, email:username, password, carrito: newCart._id})
                 // usuario adminCoder@coder.com, contraseña 123 ya creado //
-                sendWelcomeEmail(username)
+                // sendWelcomeEmail(username)
                 return done(null, newUser)
             } catch (error) {
                 return done(error)
@@ -42,25 +44,28 @@ export const initPassport = () =>{
     
     passport.use("login", new local.Strategy(
         {
-            usernameField:"email"
+            usernameField: "email"
         },
-        async(username, password, done)=>{
+        async (username, password, done) => {
             try {
-                let user=await usuariosManager.getUserBy({email:username})
-                if(!user){
-                    return done(null, false, { message: "Usuario no encontrado" })    
+                let user = await usuariosManager.getUserBy({ email: username });
+                if (!user) {
+                    return done(null, false, { message: "Usuario no encontrado" });
                 }
             
-                if(!validatePassword(password, user.password)){
-                    return done(null, false, { message: "Contraseña incorrecta" })    
+                if (!validatePassword(password, user.password)) {
+                    return done(null, false, { message: "Contraseña incorrecta" });
                 }
 
-                return done(null, user)
+                user.last_connection = new Date();
+                await usersModel.updateOne({ _id: user._id }, { last_connection: user.last_connection });
+    
+                return done(null, user);
             } catch (error) {
-                return done(error)
+                return done(error);
             }
         }
-    ))
+    ));
 
     passport.use("github", new github.Strategy(
         {

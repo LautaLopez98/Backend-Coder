@@ -5,8 +5,8 @@ class ProductService {
         this.dao = dao;
     }
 
-    getProducts = async()=>{
-        return await this.dao.get();
+    getProducts = async(limit, page, sort, query)=>{
+        return await this.dao.get(limit, page, sort, query);
     }
 
     getProductBy = async(filtro={})=>{

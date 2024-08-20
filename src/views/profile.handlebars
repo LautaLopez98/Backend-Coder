@@ -9,9 +9,24 @@
     <p>Correo electrónico: <strong>{{user.email}}</strong></p>
     <p>Carrito: <strong>{{user.carrito}}</strong></p>
 </div>
-<form action="/api/users/premium/{{user._id}}" method="post" style="display:inline;">
+<form id="changeRoleForm" action="/api/users/premium/{{user._id}}" method="post">
+    <input type="hidden" name="uid" value="{{user._id}}" />
     <button type="submit">Cambiar rol del usuario</button>
 </form>
+<h3>Cargar Documentos</h3>
+<form id="upload-documents-form" action="/api/users/{{user._id}}/documents" method="post" enctype="multipart/form-data">
+        <h3>Subir Documentos</h3>
+        <label for="identification">Identificación:</label>
+        <input type="file" name="documents" id="identification" />
+        <br>
+        <label for="address">Comprobante de domicilio:</label>
+        <input type="file" name="documents" id="address" />
+        <br>
+        <label for="statement">Comprobante de estado de cuenta:</label>
+        <input type="file" name="documents" id="statement" />
+        <br>
+        <button type="submit">Subir documentos</button>
+    </form>
 <br><br>
 <a class="pages" href="/products">Ir a comprar</a>
 <script src="js/changerol.js"></script>

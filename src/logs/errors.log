@@ -168,3 +168,62 @@
     "message": "No se pudieron procesar los productos del carrito",
     "stack": "Error: No se pudieron procesar los productos del carrito\n    at CustomError.createError (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/errors/customError.js:5:21)\n    at purchaseCart (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/cartController.js:185:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
 }
+2024-08-15T22:26:34.334Z error: {
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'map')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'map')\n    at uploadDocuments (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:57:44)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-08-18T17:10:36.358Z error: TypeError: req.logger.warn is not a function
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:31:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-18T17:10:57.704Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:11:06.857Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:11:08.206Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:11:28.187Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:13:28.230Z error: TypeError: req.logger.warn is not a function
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:31:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-18T17:13:29.917Z error: TypeError: req.logger.warn is not a function
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:31:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-18T17:13:42.660Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:13:50.659Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:14:15.507Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:15:24.025Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:15:26.948Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T17:16:11.967Z error: TypeError: req.logger.warn is not a function
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:38:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-18T17:16:13.392Z error: TypeError: req.logger.warn is not a function
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:38:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-18T17:16:22.365Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-18T18:52:51.647Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:47:40.287Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:47:41.471Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:47:42.566Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:52:55.611Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:52:56.876Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:52:57.832Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:54:57.852Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:54:58.925Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:54:59.962Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:55:32.301Z error: TypeError: Cannot read properties of undefined (reading 'split')
+    at file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:30:59
+    at Proxy.reduce (<anonymous>)
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:28:54)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-19T22:55:33.643Z error: TypeError: Cannot read properties of undefined (reading 'split')
+    at file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:30:59
+    at Proxy.reduce (<anonymous>)
+    at changeUserRole (file:///C:/Users/Joaquin/Desktop/3r%20Pre-Entrega/src/controllers/userController.js:28:54)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-19T22:56:17.349Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:56:18.905Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:57:43.581Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:57:45.134Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:58:06.625Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T22:58:07.896Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T23:03:54.169Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-19T23:20:11.013Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium
+2024-08-20T01:22:07.865Z error: El usuario no ha cargado todos los documentos requeridos para cambiar a premium

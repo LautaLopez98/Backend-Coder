@@ -9,9 +9,10 @@ import "express-async-errors"
 export class ProductController {
     static getProducts = async (req, res, next) => {
         try {
-            const { page, limit, sort, category, stock } = req.query;
+            const { page = 1, limit = 10, sort, category, stock } = req.query;
+            const pageNumber = parseInt(page) || 1;
             const query = { category, stock };
-            const products = await productService.getProducts(limit, page, sort, query);
+            const products = await productService.getProducts(parseInt(limit), pageNumber, sort, query);
             req.logger.info('Productos obtenidos correctamente');
             res.json(products);
         } catch (error) {

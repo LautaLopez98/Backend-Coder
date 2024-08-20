@@ -15,14 +15,16 @@ export default __dirname;
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./src/public/uploads")
+        let folder = 'documents';
+        if (file.fieldname === 'profile') folder = 'profiles';
+        if (file.fieldname === 'product') folder = 'products';
+        cb(null, `./src/public/uploads/${folder}`);
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() +"-"+ file.originalname )
+        cb(null, Date.now() + "-" + file.originalname);
     }
-})
-
-export const upload = multer({ storage: storage })
+});
+export const upload = multer({ storage: storage });
 
 const SECRET="CoderLauta"
 // export const generaHash=password=>crypto.createHmac("sha256", SECRET).update(password).digest("hex")

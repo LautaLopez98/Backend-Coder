@@ -15,5 +15,13 @@ export const usersModel=mongoose.model('usuarios',new mongoose.Schema({
     },
     carrito: {
         type: mongoose.Types.ObjectId, ref: "carritos"
+    },
+    documents: [{
+        name: String,
+        reference: String
+    }],
+    last_connection: {
+        type: Date,
+        default: null
     }
 }, {timestamps:true, strict:false}))

@@ -1,21 +1,27 @@
-// const login=async(e)=>{
-//     e.preventDefault()
-//     let [email, password]=new FormData(document.getElementById("formLogin")).values()
-//     let body={
-//         email, password
-//     }
-//     let respuesta=await fetch("/api/sessions/login", {
-//         method:"post", 
-//         headers:{
-//             "Content-Type":"application/json"
-//         },
-//         body: JSON.stringify(body)
-//     })
-//     let datos=await respuesta.json()
-//     console.log(datos)
-//     if(respuesta.ok){
-//         window.location.href="/products"
-//     }else{
-//         window.location.href="/login?error=Error al validar los datos"
+// async function login(event) {
+//     event.preventDefault();
+
+//     const formData = new FormData(document.getElementById('formLogin'));
+
+//     try {
+//         const response = await fetch(formLogin.action, {
+//             method: 'POST',
+//             body: formData,
+//         });
+
+//         const data = await response.json();
+
+//         if (response.ok) {
+//             window.location.href = '/products';
+//         } else {
+//             alert(data.error || 'Error en el login');
+//         }
+//     } catch (error) {
+//         console.error('Error en la solicitud:', error);
+//         alert('Error en la solicitud');
 //     }
 // }
+
+
+
+

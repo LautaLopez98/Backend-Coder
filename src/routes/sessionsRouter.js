@@ -3,6 +3,7 @@ export const router = Router();
 import passport from "passport";
 import { passportCall } from "../middlewares/passportCall.js";
 import { UsersDTO } from "../dto/usersDto.js";
+import { usersModel } from "../dao/models/usersModel.js";
 
 router.get("/error", (req, res)=>{
     res.setHeader('Content-Type','application/json');
@@ -22,16 +23,17 @@ router.post('/registro', passportCall("registro", "registro"),async (req, res) =
 })
 
 router.post('/login', passportCall("login", "login"), async (req, res) => {
-    if(req.user) {
+    if (req.user) {
         let user = { ...req.user };
         delete user.password;
         req.session.user = user;
-        return res.redirect('/products');
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(200).json({ payload: "Login correcto", user });
+    } else {
+        res.status(401).json({ error: "Credenciales inválidas" });
     }
-    
-    res.setHeader('Content-Type','application/json');
-    return res.status(200).json({payload:"Login correcto", user});
-})
+});
+
 
 router.get("/github", passport.authenticate("github", {}), (req, res)=>{})
 
@@ -42,7 +44,13 @@ router.get("/cbGitHub", passport.authenticate("github", {failureRedirect:"/api/s
     return res.status(200).json({payload:"Usuario logueado", user:req.user});
 })
 
-router.get("/logout", (req, res)=>{
+router.get("/logout", async (req, res)=>{
+    if (req.session.user) {
+        let user = await usersModel.findById({ _id: req.session.user._id });
+        user.last_connection = new Date();
+        await user.save();
+    }
+
     req.session.destroy(e=>{
         if(e){
             res.setHeader('Content-Type','application/json');
