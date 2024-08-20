@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     alert(result.message || 'Rol de usuario cambiado correctamente');
-                    location.reload(); // Recarga la página para reflejar los cambios
+                    location.reload();
                 } else {
                     alert(`Error: ${result.message || 'No se pudo cambiar el rol del usuario'}`);
                 }
